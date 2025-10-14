@@ -1,4 +1,4 @@
-package com.streaem
+package com.streaem.products
 
 import io.micronaut.runtime.Micronaut.run
 

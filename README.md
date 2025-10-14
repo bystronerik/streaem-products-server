@@ -1,35 +1,58 @@
-## Micronaut 4.9.4 Documentation
+# Product Server
 
-- [User Guide](https://docs.micronaut.io/4.9.4/guide/index.html)
-- [API Reference](https://docs.micronaut.io/4.9.4/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/4.9.4/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+A Micronaut-based REST API server built with Kotlin for managing products. This application provides endpoints for retrieving, updating product information.
 
-- [Shadow Gradle Plugin](https://gradleup.com/shadow/)
-- [Micronaut Gradle Plugin documentation](https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/)
-- [GraalVM Gradle Plugin documentation](https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html)
-## Feature serialization-jackson documentation
+## Features
 
-- [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
+- RESTful API for product management
+- Built with Micronaut framework and Kotlin
+- OpenAPI/Swagger documentation
+- Docker support
+- High-performance with Chronicle Map for in-memory storage
 
+## Prerequisites
 
-## Feature ksp documentation
+- Docker (for containerized deployment)
+- Java 21
+- Gradle (for local development)
 
-- [Micronaut Kotlin Symbol Processing (KSP) documentation](https://docs.micronaut.io/latest/guide/#kotlin)
+## Running with Docker
 
-- [https://kotlinlang.org/docs/ksp-overview.html](https://kotlinlang.org/docs/ksp-overview.html)
+### Build and Run
 
+1. Build the Docker image:
+   ```bash
+   ./gradlew dockerBuild
+   ```
 
-## Feature micronaut-aot documentation
+2. Run the container:
+   ```bash
+   docker run --rm -p 8080:8080 product-server:latest
+   ```
 
-- [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
+The application will be available at `http://localhost:8080`
 
+### Docker Compose (Optional)
 
-## Feature kotest documentation
+You can also use Docker Compose for easier management:
 
-- [Micronaut Test Kotest5 documentation](https://micronaut-projects.github.io/micronaut-test/latest/guide/#kotest5)
+```yaml
+version: '3.8'
+services:
+  product-server:
+    image: product-server:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - MICRONAUT_ENVIRONMENTS=docker
+```
 
-- [https://kotest.io/](https://kotest.io/)
+## API Documentation
 
+### OpenAPI Schema
+The complete OpenAPI specification is available at:
+- **OpenAPI Schema**: http://localhost:8080/swagger/streaem-products-api-1.0.yml
 
+### Swagger UI
+Interactive API documentation and testing interface:
+- **Swagger UI**: http://localhost:8080/swagger-ui/index.html

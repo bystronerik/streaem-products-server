@@ -1,0 +1,2 @@
+app:
+  products-source: http://host.docker.internal:4001/productdata
