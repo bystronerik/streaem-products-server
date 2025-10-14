@@ -40,8 +40,11 @@ class DataStore() {
         }
 
         existing?.let { existing ->
-            if (existing.category != entity.category) {
-                categoryIndex[existing.category]?.remove(entity.id)
+            if (existing.category != null && existing.category != entity.category) {
+                categoryIndex[existing.category]?.let {
+                    it.remove(entity.id)
+                    categoryIndex[existing.category] = it
+                }
             }
         }
 
